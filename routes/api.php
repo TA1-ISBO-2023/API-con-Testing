@@ -15,11 +15,10 @@ use App\Http\Controllers\PersonaController;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
+Route::prefix('v1')->group(function(){
+    Route::get("/persona",[PersonaController::class,"Listar"]);
+    Route::get("/persona/{d}",[PersonaController::class,"Buscar"]);
+    Route::post("/persona",[PersonaController::class,"Crear"]);
+    Route::delete("/persona/{d}",[PersonaController::class,"Eliminar"]);
+
 });
-
-Route::get("/persona",[PersonaController::class,"Listar"]);
-Route::get("/persona/{d}",[PersonaController::class,"Buscar"]);
-Route::post("/persona",[PersonaController::class,"Crear"]);
-
