@@ -23,6 +23,15 @@ class PersonaController extends Controller
 
     }
 
+    public function Modificar(Request $request, $idPersona){
+        $p = Persona::findOrFail($idPersona);
+        $p -> nombre = $request -> post("nombre");
+        $p -> apellido = $request -> post("apellido");
+        $p -> save();
+
+        return $p;
+    }
+
     public function Crear(Request $request){
         try {
             $p = new Persona;

@@ -19,6 +19,7 @@ Route::prefix('v1')->group(function(){
     Route::get("/persona",[PersonaController::class,"Listar"]);
     Route::get("/persona/{d}",[PersonaController::class,"Buscar"]);
     Route::post("/persona",[PersonaController::class,"Crear"]);
+    Route::put("/persona/{d}",[PersonaController::class,"Modificar"]);
     Route::delete("/persona/{d}",[PersonaController::class,"Eliminar"]);
 
 });
